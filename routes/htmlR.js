@@ -4,6 +4,7 @@ const path = require('path');
 // route for notes page
 router.get("/notes", (req, res) => {
     res.sendFile(path.join(__dirname, '../public/notes.html'))
+    console.log("/notes");
 })
 // routes for landing page
 router.get("*",  (req, res) => {
