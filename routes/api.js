@@ -3,8 +3,8 @@ const fs = require('fs');
 const { v4: uuidv4 } = require('uuid'); 
 
 // get request
-router.get("/notes", (req, res) => {
-    
+router.get("/api/notes", (req, res) => {
+    res.sendFile(path.join(__dirname, '../db/db.json'))
 });
 
 // post request
