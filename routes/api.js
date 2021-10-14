@@ -23,4 +23,12 @@ router.post("/notes", (req, res) => {
     res.json(newList);
 })
 
+router.delete("/notes", (req, res) => {
+    const notes = fs.readFileSync('db/db.json', 'utf8');
+    const notesArray = JSON.parse(notes);
+    const newArr = notesArray.filter(note => note.id != req.params.id);
+    const notesResponse = fs.writeFileSync('db/db.json', JSON.stringhify(newArr));
+    res.json(notesResponse);
+})
+
 module.exports = router;
